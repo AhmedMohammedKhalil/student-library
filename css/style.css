@@ -1,0 +1,223 @@
+
+html,body{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: verdana, sans-serif;
+    font-size: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: 80px;
+    border-radius:50% ;
+}
+
+
+a {
+    color: black;
+}
+
+.header{
+    text-align: center;
+    color: black;
+    overflow: auto;
+    height: 300px;
+}
+
+.header .heading {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #6ca8d68c;
+}
+
+.header h1{
+    margin-top: 50px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #6ca8d6;
+    color: black;
+    justify-content: space-between;
+    padding: 5px 0;
+    align-items: center;
+
+}
+
+
+
+.nav ul {display: flex; align-items: center;}
+.nav ul > li {list-style: none; padding: 0 10px;}
+
+.nav .right{
+    margin-right: 19px;
+}
+
+.topnav {
+    display: flex;
+    justify-content: end;
+}
+.content{
+    margin: auto;
+}
+.content .aboutus > div{
+    text-align: center;
+}
+.content .aboutus h2 {
+    text-align: center;
+    padding: 50px;
+}
+
+.content .aboutus b {
+    margin-top: 10px;
+    padding: 10px 0;
+    display: block;
+}
+
+
+.content table {
+    margin: auto;
+}
+
+.content table tr{ 
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+
+.content table th{
+    padding: 0 20px;
+}
+
+.content table tr:last-child td{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.content table td input[type='submit']{
+    padding: 10px 20px;
+    font-weight: bold;
+
+}
+
+.content #register , .content #login{
+    text-align: center;
+}
+
+.content #register label ,.content #login label{
+    display: inline-block;
+    width: 200px;
+}
+
+.error{
+	background-color: #fed;
+	color:red;
+	padding: 10px;
+	text-align: center;
+}
+
+
+.success{
+	background-color: #efd;
+	color:green;
+	padding: 10px;
+	text-align: center;
+}
+
+.profile-photo {
+    height: 50px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+section.wrapper {
+    min-height: 50vh;
+}
+
+
+section.wrapper h1 {
+    text-align: center;
+}
+section.wrapper form {
+    width: 50%;
+    margin: auto;
+}
+
+
+.button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+
+.center {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+form th {
+    
+    width: 21%;
+}
+#table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#table img{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #6ca8d6;
+    color: black;
+}
+
+.footer {
+
+    padding: 20px;
+
+    text-align: center;
+    color: black;
+
+    background-color: #6CA8D6;
+}
