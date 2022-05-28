@@ -33,11 +33,11 @@ $_SESSION["header_h2"] = "courses Settings";
                 <form action="Control/courseControl.php" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
-                            <th>Name:</th>
-                            <td><input type="text" name="course_name" size="30" maxlength="30"></td>
+                            <th><label for="course_name">Course name:</label></th>
+                            <td><input type="text" name="course_name" id="course_name" placeholder="Course Name" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
-                            <th>choose majors :</th>
+                            <th><label for="major_id">choose Major:</label></th>
                             <td>
                             <select name="major_id" style="width: 100%;">
                                     <?php
@@ -48,15 +48,15 @@ $_SESSION["header_h2"] = "courses Settings";
                             </td>
                         </tr>
                         <tr>
-                            <th>Doctor 1 name :</th>
+                            <th><label for="doctor_1_name">Doctor 1 Name:</label></th>
                             <td><input type="text" name="doctor_1_name" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
-                        <th>Doctor 2 name :</th>
+                        <th><label for="doctor_2_name">Doctor 2 Name:</label></th>
                             <td><input type="text" name="doctor_2_name" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
-                        <th>Doctor 3 name :</th>
+                        <th><label for="doctor_3_name">Doctor 3 Name:</label></th>
                             <td><input type="text" name="doctor_3_name" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
@@ -83,12 +83,12 @@ $_SESSION["header_h2"] = "courses Settings";
                         echo $_SESSION['course_id'] ?>">
                         <table>
                             <tr>
-                                <th>Name:</th>
+                                <th><label for="course_name">Course name:</label></th>
                                 <td><input type="text" name="course_name" value="<?php
                                     echo $_SESSION['course_name'] ?>" size="30" maxlength="30"></td>
                             </tr>
                             <tr>
-                                <th>choose majors :</th>
+                                <th><label for="major_id">choose Major:</label></th>
                                 <td>
                                     <select name="major_id" style="width: 100%;">
                                         <?php
@@ -107,7 +107,7 @@ $_SESSION["header_h2"] = "courses Settings";
                                     $var_text = "doctor_" . $i . "_name";
                             ?>
                                 <tr>
-                                    <th>Doctor <?php echo $i ?> name :</th>
+                                    <th><label for="<?php echo $var_text ?>">Doctor <?php echo $i ?> Name:</label></th>
                                     <td><input type="text" value="<?php echo $_SESSION[$var_text]  ?>" name="<?php echo $var_text ?>" id="<?php echo $var_text ?>" size="30" maxlength="30"></td>
                                 </tr>
                             <?php }?>

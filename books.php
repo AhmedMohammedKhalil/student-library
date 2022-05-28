@@ -21,10 +21,9 @@ $_SESSION["header_h2"] = "All Books";
     <?php include 'layout/header.php'; ?>
     <?php include 'MSG.php'; ?>
     <section class="wrapper">
-        <?php if(!isset($_SESSION['recomended'])) { ?>
         <section id="" class="article">
             <h1> All Books </h1>
-            <div class="flex" style="display: flex;width:100%; justify-content:space-around">
+            <div class="flex" style="display: flex;width:100%; justify-content:space-around;flex-wrap: wrap;">
             <?php
                 if(isset( $_SESSION["books_num"])) {
                     $flag = true;
@@ -42,32 +41,32 @@ $_SESSION["header_h2"] = "All Books";
                             $flag = false;
                         ?>
                         <div style="width: 30%;text-align:center;padding: 20px 0;margin: 10px 0;background-color:#e0e6fc57">
-                        <form action="Control/OrderControl.php" method="post">
+                            <form action="Control/OrderControl.php" method="post">
 
-                            <div>
-                                <?php if($_SESSION[$var_book_photo] != '') {?>
-                                    <img src="<?php echo $_SESSION[$var_book_photo]; ?>" style="width: 90%;" alt="">
-                                <?php } else {?>
-                                    <img src="./imgs/books/default.png" style="width: 90%;" alt="">
-                                <?php }?>
-                                
-                            </div>
-                            <div> <?php echo $_SESSION[$var_book_title]; ?> </div>
-                            <div> <?php echo $_SESSION[$var_book_condition]; ?> </div>
-                            <div> <?php echo $_SESSION[$var_book_price]; ?> KW</div>
+                                <div>
+                                    <?php if($_SESSION[$var_book_photo] != '') {?>
+                                        <img src="<?php echo $_SESSION[$var_book_photo]; ?>" style="width: 90%;" alt="Book image">
+                                    <?php } else {?>
+                                        <img src="./imgs/books/default.png" style="width: 90%;" alt="Book image">
+                                    <?php }?>
+                                    
+                                </div>
+                                <div> <?php echo $_SESSION[$var_book_title]; ?> </div>
+                                <div> <?php echo $_SESSION[$var_book_condition]; ?> </div>
+                                <div> <?php echo $_SESSION[$var_book_price]; ?> KW</div>
 
-                            <div>
-                                <?php echo htmlspecialchars_decode(stripslashes($_SESSION[$var_book_description])); ?>
-                            </div>
-                            <?php if(isset($_SESSION['type']) && $_SESSION['type'] != 'admin') {?>
-                            <div>
-                                <?php if($_SESSION['user_id'] != $_SESSION[$var_book_owner_id]) {?>
-                                        <input type="hidden" name="book_id" value="<?php echo $_SESSION[$var_book_id]; ?>">
-                                        <input type="submit" class="button button2" name="makeOrder" value="Make Order">
+                                <div>
+                                    <?php echo htmlspecialchars_decode(stripslashes($_SESSION[$var_book_description])); ?>
+                                </div>
+                                <?php if(isset($_SESSION['type']) && $_SESSION['type'] != 'admin') {?>
+                                <div>
+                                    <?php if($_SESSION['user_id'] != $_SESSION[$var_book_owner_id]) {?>
+                                            <input type="hidden" name="book_id" value="<?php echo $_SESSION[$var_book_id]; ?>">
+                                            <input type="submit" class="button button2" name="makeOrder" value="Make Order">
+                                    <?php }?>
+                                </div>
                                 <?php }?>
-                            </div>
-                            <?php }?>
-                        </form>
+                            </form>
 
                         </div>
                         <?php } 
@@ -80,11 +79,11 @@ $_SESSION["header_h2"] = "All Books";
             ?>
             </div>
         </section>
-        <?php } ?>
+        
         <?php if(isset($_SESSION['r_books_num']) && $_SESSION['r_books_num'] > 0) {?>
             <section id="" class="article">
             <h1> Recomended Books </h1>
-            <div class="flex" style="display: flex;width:100%; justify-content:space-around">
+            <div class="flex" style="display: flex;width:100%; justify-content:space-around;flex-wrap: wrap;">
             <?php
                 if(isset( $_SESSION["r_books_num"])) {
                     $flag = true;
@@ -106,9 +105,9 @@ $_SESSION["header_h2"] = "All Books";
 
                         <div>
                             <?php if($_SESSION[$var_r_book_photo] != '') {?>
-                                <img src="<?php echo $_SESSION[$var_r_book_photo]; ?>" style="width: 90%;" alt="">
+                                <img src="<?php echo $_SESSION[$var_r_book_photo]; ?>" style="width: 90%;" alt="Book image">
                             <?php } else {?>
-                                <img src="./imgs/books/default.png" style="width: 90%;" alt="">
+                                <img src="./imgs/books/default.png" style="width: 90%;" alt="Book image">
                             <?php }?>
                             
                         </div>
@@ -140,8 +139,6 @@ $_SESSION["header_h2"] = "All Books";
             ?>
             </div>
         </section>
-        <?php } else if (isset($_SESSION['recomended'])) { ?>
-            <div style='text-align:center'>Sorry Not Found Recomended books</div>
         <?php }?>
     </section>
     

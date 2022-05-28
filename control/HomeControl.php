@@ -147,7 +147,8 @@ class HomeControl{
 
     public function getAllBooks() {
         global $con;
-        unset($_SESSION['recomended']);
+        unset( $_SESSION['r_books_num']);
+        unset($_SESSION['r_books']);
         if(isset($_SESSION['email'])) {
             $select = "SELECT id FROM users where email ='{$_SESSION['email']}';";
             $result = $con->query($select);

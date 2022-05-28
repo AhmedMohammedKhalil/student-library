@@ -65,12 +65,16 @@ class OrderControl{
 
     public function makeOrder() {
 
+        
+        unset( $_SESSION['r_books_num']);
+        unset($_SESSION['r_books']);
+        
         global $con;
         $select = "SELECT id FROM users where email ='{$_SESSION['email']}';";
         $result = $con->query($select);
         $user = $result->fetch(PDO::FETCH_ASSOC); 
 
-        $select = "SELECT id FROM books where id ={$_POST['book_id']};";
+        $select = "SELECT * FROM books where id ={$_POST['book_id']};";
         $result = $con->query($select);
         $book = $result->fetch(PDO::FETCH_ASSOC); 
 
@@ -83,9 +87,40 @@ class OrderControl{
 
 
 
+
+        $st = $con->prepare("SELECT * From books ");
+        $st->execute();
+        $_SESSION['books'] = $st->fetchAll(PDO::FETCH_ASSOC);
+        $i = 1;
+        foreach($_SESSION['books'] as $b) {
+            $var_book_id = "book_" . $i . "_id";
+            $var_book_photo = "book_" . $i . "_photo";
+            $var_book_title = "book_" . $i . "_title";
+            $var_book_description = "book_" . $i . "_description";
+            $var_book_status = "book_" . $i . "_status";
+            $var_book_price = "book_" . $i . "_price";
+            $var_book_condition = "book_" . $i . "_condition";
+            $var_book_owner_id = "book_" . $i . "_owner_id";
+
+            $_SESSION[$var_book_id] = $b['id'];
+            $_SESSION[$var_book_title] = $b['title'];
+            $_SESSION[$var_book_photo] = $b['photo'];
+            $_SESSION[$var_book_description] = $b['description'];
+            $_SESSION[$var_book_status] = $b['available'];
+            $_SESSION[$var_book_condition] = $b['conditions'];
+            $_SESSION[$var_book_price] = $b['price'];
+            $_SESSION[$var_book_owner_id] = $b['user_id'];
+
+
+            $i++;
+        }
+
+        $_SESSION['books_num'] = $i - 1;
+
+
         // for recommended books
-        $select = "SELECT distinct b.* from books where name like '%{$book['name']}%' 
-                    or description like '%{$book['name']}%' not id = {$book['id']} ;";
+        $select = "SELECT distinct * from books where title like '%{$book['title']}%' 
+                    or description like '%{$book['title']}%' and id != {$book['id']} ;";
             $st = $con->prepare($select);
             $st->execute();
             $_SESSION['r_books'] = $st->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +147,6 @@ class OrderControl{
 
                 $i++;
             }
-            $_SESSION['recommended'] = true;
             $_SESSION['r_books_num'] = $i - 1;
 
             header('location: ../books.php');

@@ -33,8 +33,8 @@ $_SESSION["header_h2"] = "About Settings";
                             $var_text = "para_" . $i . "_text";
                         ?>
                             <tr>
-                                <th>Paragraph <?php echo $i; ?> Text:</th>
-                                <td> <textarea rows="10" cols="60" name="<?php echo $var_text; ?>" id="<?php echo $var_text; ?>"><?php echo $_SESSION[$var_text] ?? ''; ?></textarea>
+                                <th><label for="<?php echo $var_text; ?>">Paragraph <?php echo $i; ?> Text:</label></th>
+                                <td> <textarea rows="10" cols="60" name="<?php echo $var_text; ?>" id="<?php echo $var_text;?>" placeholder="about us article"><?php echo $_SESSION[$var_text] ?? ''; ?></textarea>
                                     <script>
                                         ClassicEditor
                                             .create(document.querySelector('#<?php echo $var_text; ?>'))

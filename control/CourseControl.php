@@ -118,7 +118,7 @@ class courseControl{
                 $insert = "INSERT INTO doctor_names (name,course_id) VALUES ('{$doctor_2_name}',{$course_id}); ";
                 $con->query($insert);
             }
-            if(!empty($doctor_2_name)) {
+            if(!empty($doctor_3_name)) {
                 $insert = "INSERT INTO doctor_names (name,course_id) VALUES ('{$doctor_3_name}',{$course_id}); ";
                 $con->query($insert);
             }
@@ -213,7 +213,7 @@ class courseControl{
                 $insert = "INSERT INTO doctor_names (name,course_id) VALUES ('{$doctor_2_name}',{$course_id}); ";
                 $con->query($insert);
             }
-            if(!empty($doctor_2_name)) {
+            if(!empty($doctor_3_name)) {
                 $insert = "INSERT INTO doctor_names (name,course_id) VALUES ('{$doctor_3_name}',{$course_id}); ";
                 $con->query($insert);
             }

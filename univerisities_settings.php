@@ -32,11 +32,11 @@ $_SESSION["header_h2"] = "Univerisities Settings";
                 <form action="Control/UniveristyControl.php" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
-                            <th><label for="name"> Name:</label></th>
-                            <td><input type="text" name="univeristy_name" size="30" maxlength="30"></td>
+                            <th><label for="univeristy_name"> Name:</label></th>
+                            <td><input type="text" name="univeristy_name" id="univeristy_name" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
-                            <th><label for="Description"> Description:</label></th>
+                            <th><label for="Univeristy_desc"> Description:</label></th>
                             <td><textarea rows="10" cols="60" name="univeristy_desc" id="Univeristy_desc"></textarea>
                                 <script>
                                     ClassicEditor
@@ -49,7 +49,7 @@ $_SESSION["header_h2"] = "Univerisities Settings";
                         </tr>
                         <tr>
                                 <th><label for="Photo"> Photo:</label></th>
-                                <td><input type="file" name="photo" size="30" maxlength="30"></td>
+                                <td><input type="file" name="photo" id="photo" size="30" maxlength="30"></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center;"><input type="submit" name="CompleteAddUniveristy"
@@ -75,12 +75,12 @@ $_SESSION["header_h2"] = "Univerisities Settings";
                         echo $_SESSION['univeristy_id'] ?>">
                         <table>
                             <tr>
-                                <th>Name:</th>
-                                <td><input type="text" name="univeristy_name" value="<?php
+                                <th><label for="univeristy_name">Name:</label></th>
+                                <td><input type="text" name="univeristy_name" id="univeristy_name" value="<?php
                                     echo $_SESSION['univeristy_name'] ?>" size="30" maxlength="30"></td>
                             </tr>
                             <tr>
-                                <th>Description:</th>
+                                <th><label for="Univeristy_desc">Description:</label></th>
                                 <td><textarea rows="10" cols="60" name="univeristy_desc" id="Univeristy_desc"><?php
                                         echo $_SESSION['univeristy_desc']; ?></textarea>
                                     <script>
@@ -93,8 +93,8 @@ $_SESSION["header_h2"] = "Univerisities Settings";
                                 </td>
                             </tr>
                             <tr>
-                                <th>photo:</th>
-                                <td><input type="file" name="photo" size="30" maxlength="30"></td>
+                                <th><label for="photo">Photo :</label></th>
+                                <td><input type="file" name="photo" id="photo" size="30" maxlength="30"></td>
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-align: center;"><input type="submit" name="CompleteEditUniveristy"
@@ -139,9 +139,9 @@ $_SESSION["header_h2"] = "Univerisities Settings";
                                     
                                     <td> 
                                         <?php if($_SESSION[$var_Univeristy_photo] != '') {?>
-                                            <img src="<?php echo $_SESSION[$var_Univeristy_photo]; ?>" alt="">
+                                            <img src="<?php echo $_SESSION[$var_Univeristy_photo]; ?>" alt="university image">
                                         <?php } else {?>
-                                            <img src="./imgs/univeristies/default.jpg" alt="">
+                                            <img src="./imgs/univeristies/default.jpg" alt="university image">
                                         <?php }?>
                                         
                                     </td>

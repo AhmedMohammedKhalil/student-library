@@ -33,14 +33,14 @@ $_SESSION["header_h2"] = "Majors Settings";
                 <form action="Control/MajorControl.php" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
-                            <th>Name:</th>
-                            <td><input type="text" name="major_name" size="30" maxlength="30"></td>
+                            <th><label for="major_name">Name:</label></th>
+                            <td><input type="text" name="major_name" id="major_name" placeholder="Major Name" size="30" maxlength="30"></td>
                         </tr>
                         
                         <tr>
-                            <th>choose univerisities :</th>
+                            <th><label for="uni_id">choose univerisities :</label></th>
                             <td>
-                            <select name="uni_id" style="width: 100%;">
+                            <select name="uni_id" id="uni_id" style="width: 100%;">
                                     <?php
                                         foreach($_SESSION['unis'] as $uni) { ?>
                                             <option value ='<?php echo $uni["id"] ?>'><?php echo $uni['name'] ?></option> 
@@ -49,8 +49,8 @@ $_SESSION["header_h2"] = "Majors Settings";
                             </td>
                         </tr>
                         <tr>
-                            <th>Description:</th>
-                            <td><textarea rows="10" cols="60" name="major_desc" id="major_desc"></textarea>
+                            <th><label for="major_desc">Description:</label></th>
+                            <td><textarea rows="10" cols="60" name="major_desc" id="major_desc" placeholder="Major Description"></textarea>
                                 <script>
                                     ClassicEditor
                                         .create(document.querySelector('#major_desc'))
@@ -84,15 +84,15 @@ $_SESSION["header_h2"] = "Majors Settings";
                         echo $_SESSION['major_id'] ?>">
                         <table>
                             <tr>
-                                <th>Name:</th>
-                                <td><input type="text" name="major_name" value="<?php
+                                <th><label for="major_name">Name:</label></th>
+                                <td><input type="text" name="major_name" id="major_name" value="<?php
                                     echo $_SESSION['major_name'] ?>" size="30" maxlength="30"></td>
                             </tr>
                             
                             <tr>
-                                <th>choose univerisities :</th>
+                                <th><label for="uni_id">choose univerisities :</label></th>
                                 <td>
-                                <select name="uni_id" style="width: 100%;">
+                                <select name="uni_id" id="uni_id" style="width: 100%;">
                                         <?php
                                             foreach($_SESSION['unis'] as $uni) {
                                                 if($uni['id'] == $_SESSION['major_uni_id'])
@@ -105,7 +105,7 @@ $_SESSION["header_h2"] = "Majors Settings";
                                 </td>
                             </tr>
                             <tr>
-                                <th>Description:</th>
+                                <th><label for="major_desc">Description:</label></th>
                                 <td><textarea rows="10" cols="60" name="major_desc" id="major_desc"><?php
                                         echo $_SESSION['major_desc']; ?></textarea>
                                     <script>

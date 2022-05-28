@@ -31,12 +31,12 @@ $_SESSION["header_h2"] = "Search";
                     <table style="margin:auto">
                         <tr>
                             <th><label for="search">Search:</label></th>
-                            <td><input type="text" name="search" style="width:100%;box-sizing:border-box"></td>
+                            <td><input type="text" name="search" id="search" placeholder="make search" style="width:100%;box-sizing:border-box"></td>
                         </tr>
                         <tr>
-                            <th>choose Type :</th>
+                            <th><label for="type">Choose Type:</label></th>
                             <td>
-                                <select name="type" style="width: 100%;">
+                                <select name="type" id="type" style="width: 100%;">
                                     <option value="1">Univeristy Name</option>
                                     <option value="2">Major Name</option>
                                     <option value="3">Course Name</option>
@@ -46,9 +46,9 @@ $_SESSION["header_h2"] = "Search";
                             </td>
                         </tr>
                         <tr>
-                            <th>choose Order :</th>
+                            <th><label for="order">Choose Order:</label></th>
                             <td>
-                                <select name="order" style="width: 100%;">
+                                <select name="order" id="order" style="width: 100%;">
                                     <option value="1" selected>Ascending</option>
                                     <option value="2">Descending</option>
                                 </select>
@@ -67,7 +67,7 @@ $_SESSION["header_h2"] = "Search";
             <?php if(isset($_SESSION['search'])) { ?>
                 <section id="" class="article">
                     <h1> All Books </h1>
-                    <div class="flex" style="display: flex;width:100%; justify-content:space-around">
+                    <div class="flex" style="display: flex;width:100%; justify-content:space-around;flex-wrap: wrap;">
                     <?php
                         if(isset( $_SESSION["books_num"])) {
                             $flag = true;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2022 at 09:11 PM
+-- Generation Time: May 28, 2022 at 10:57 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -53,7 +53,7 @@ INSERT INTO `aboutus` (`id`, `text`) VALUES
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
+  `title` varchar(150) NOT NULL,
   `description` text NOT NULL,
   `available` varchar(20) NOT NULL,
   `conditions` varchar(50) NOT NULL,
@@ -62,15 +62,19 @@ CREATE TABLE IF NOT EXISTS `books` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `books_ibfk_2` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `books`
 --
 
 INSERT INTO `books` (`id`, `title`, `description`, `available`, `conditions`, `photo`, `price`, `user_id`) VALUES
-(6, 'book1', '&lt;p&gt;book&lt;/p&gt;', 'not available', 'new', NULL, 0.01, 7),
-(7, 'book 2', '&lt;p&gt;book 2&lt;/p&gt;', 'not available', 'new', NULL, 0.01, 7);
+(6, 'arabic language', '&lt;p&gt;arabic book&lt;/p&gt;', 'available', 'old', NULL, 3, 7),
+(7, 'Big Ideas Simply Explained', '&lt;p&gt;physics book&lt;/p&gt;', 'available', 'new', NULL, 4.5, 3),
+(8, 'Mathmatics', '&lt;p&gt;Math book&lt;/p&gt;', 'available', 'used', NULL, 5, 6),
+(9, 'arabic language for english speaking students', '&lt;p&gt;arabic book&lt;/p&gt;', 'available', 'new', NULL, 8, 3),
+(10, 'Seven Brief Lessons on Physics', '&lt;p&gt;physics book&lt;/p&gt;', 'available', 'new', NULL, 7, 6),
+(11, 'Mathmatics', '&lt;p&gt;Math book&lt;/p&gt;', 'available', 'new', NULL, 9, 7);
 
 -- --------------------------------------------------------
 
@@ -190,16 +194,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `status`, `created_at`, `book_id`, `user_id`) VALUES
-(1, 'reject', '2022-05-12 00:23:48', 6, 6),
-(2, 'wait', '2022-05-12 00:23:48', 7, 3),
-(12, 'wait', '2022-05-12 04:38:56', 6, 3);
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -243,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `major_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `major_id` (`major_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`

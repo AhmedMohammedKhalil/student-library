@@ -27,7 +27,7 @@ $_SESSION["header_h1"] = "Student library";
                 <section id="" class="article">
 
                 <h1> All Majors </h1>
-                <div class="flex" style="display: flex;width:100%; justify-content:space-around">
+                <div class="flex" style="display: flex;width:100%; justify-content:space-around;flex-wrap: wrap;">
                 <?php
                     if(isset( $_SESSION["majors_num"])) {
                         for ($i = 1; $i <= $_SESSION["majors_num"]; $i++) {

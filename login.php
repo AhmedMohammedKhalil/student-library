@@ -30,8 +30,8 @@ $_SESSION["header_h2"] = "Login";
                 <form action="Control/RegisterControl.php" method="post" >
                 
                 <table>
-                <tr>	<th><label for="email">Email:</label> </th>	<td><input type="email" name="email" id="email" size ="30" maxlength="30" required></td>	</tr>
-                <tr>	<th><label for="password">Password:</label> </th>	<td><input type="password" name="password" id="password" size ="30" maxlength="30" required></td>	</tr>
+                <tr>	<th><label for="email">Email:</label> </th>	<td><input type="email" name="email" id="email" placeholder="email" size ="30" maxlength="30" required></td>	</tr>
+                <tr>	<th><label for="password">Password:</label> </th>	<td><input type="password" name="password" id="password" placeholder="password" size ="30" maxlength="30" required></td>	</tr>
                 <tr> <td colspan="2"><input type="submit" name="login" value ="Login"></td> </tr>
                 </table>
                 

@@ -34,18 +34,18 @@ $_SESSION["header_h2"] = "Books Settings";
                     <table>
                         <tr>
                             <th><label for="title">title:</label></th>
-                            <td><input type="text" name="title" id="title" size="30" maxlength="30"></td>
+                            <td><input type="text" name="title" id="title" placeholder="title" size="30" maxlength="30"></td>
                         </tr>
 
                         <tr>
                                 <th><label for="Photo"> Photo:</label></th>
-                                <td><input type="file" name="photo" size="30" maxlength="30"></td>
+                                <td><input type="file" name="photo" size="30" id="photo" placeholder="photo" maxlength="30"></td>
                         </tr>
                         
 
                         <tr>
                                 <th><label for="price"> price:</label></th>
-                                <td><input type="number" min='0.01' value='0.01' step="0.01" name="price" size="30" maxlength="30"></td>
+                                <td><input type="number" id="price" placeholder="price" min='0.01' value='0.01' step="0.01" name="price" size="30" maxlength="30"></td>
                         </tr>
 
 
@@ -75,7 +75,7 @@ $_SESSION["header_h2"] = "Books Settings";
                         <tr>
                             <th><label for="courses">choose Multi Corses :</label> </th>
                             <td>
-                            <select name="courses[]" style="width: 100%;" multiple>
+                            <select name="courses[]" id="courses" style="width: 100%;" multiple>
                                     <?php
                                         foreach($_SESSION['courses'] as $course) { ?>
                                             <option value ='<?php echo $course["id"] ?>'><?php echo $course['name'] ?></option> 
@@ -86,7 +86,7 @@ $_SESSION["header_h2"] = "Books Settings";
 
                         <tr>
                             <th><label for="desc"> Description:</label></th>
-                            <td><textarea rows="10" cols="60" name="desc" id="desc"></textarea>
+                            <td><textarea rows="10" cols="60" name="desc" id="desc" placeholder="description"></textarea>
                                 <script>
                                     ClassicEditor
                                         .create(document.querySelector('#desc'))
@@ -122,19 +122,19 @@ $_SESSION["header_h2"] = "Books Settings";
                         <table>
                             <tr>
                                 <th><label for="title">title:</label></th>
-                                <td><input type="text" name="title" value="<?php
+                                <td><input type="text" name="title" placeholder="title" value="<?php
                                     echo $_SESSION['title'] ?>" size="30" maxlength="30"></td>
                             </tr>
 
                             <tr>
                                 <th><label for="Photo"> Photo:</label></th>
-                                <td><input type="file" name="photo" size="30" maxlength="30"></td>
+                                <td><input type="file" name="photo" id="photo" placeholder="photo" size="30" maxlength="30"></td>
                             </tr>
                             
 
                             <tr>
                                     <th><label for="price"> price:</label></th>
-                                    <td><input type="number" min='0.01' value='<?php echo $_SESSION['price']?>' name="price" size="30" maxlength="30"></td>
+                                    <td><input type="number" id="price" placeholder="price" min='0.01' value='<?php echo $_SESSION['price']?>' name="price" size="30" maxlength="30"></td>
                             </tr>
 
 
@@ -161,7 +161,7 @@ $_SESSION["header_h2"] = "Books Settings";
                             <tr>
                                 <th><label for="courses">choose multi course:</label> </th>
                                 <td>
-                                    <select name="courses[]" style="width: 100%;" multiple>
+                                    <select name="courses[]" id="courses" style="width: 100%;" multiple>
                                         <?php
                                             foreach($_SESSION['courses'] as $course) {
                                                 $flag = false;
@@ -181,7 +181,7 @@ $_SESSION["header_h2"] = "Books Settings";
                             </tr>
                             <tr>
                                 <th><label for="desc"> Description:</label></th>
-                                <td><textarea rows="10" cols="60" name="desc" id="desc"><?php
+                                <td><textarea rows="10" cols="60" name="desc" id="desc" placeholder="description"><?php
                                         echo $_SESSION['desc']; ?></textarea>
                                     <script>
                                         ClassicEditor
@@ -244,9 +244,9 @@ $_SESSION["header_h2"] = "Books Settings";
                                         echo $_SESSION[$var_book_id]; ?> </td>
                                      <td> 
                                         <?php if($_SESSION[$var_book_photo] != '') {?>
-                                            <img src="<?php echo $_SESSION[$var_book_photo]; ?>" alt="">
+                                            <img src="<?php echo $_SESSION[$var_book_photo]; ?>" alt="Book image">
                                         <?php } else {?>
-                                            <img src="./imgs/books/default.png" alt="">
+                                            <img src="./imgs/books/default.png" alt="Book image">
                                         <?php }?>
                                         
                                     </td>
